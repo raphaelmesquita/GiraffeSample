@@ -48,7 +48,7 @@ let configureApp (app : IApplicationBuilder) =
 
 let configureServices (services : IServiceCollection) =
     let sp  = services.BuildServiceProvider()
-    let _ = sp.GetService<IHostingEnvironment>()
+    let hostEnv = sp.GetService<IHostingEnvironment>()
     
     services.Configure<IISOptions>(fun o -> 
         o.ForwardClientCertificate <- true
